@@ -57,8 +57,8 @@ gulp.task('rsync', function() {
 	return gulp.src('app/**')
 	.pipe(rsync({
 		root: 'app/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
+		hostname: 'alexko89@alexko89.beget.tech',
+		destination: 'demos.alexko89.beget.tech/public_html/dirname/',
 		// include: ['*.htaccess'], // Includes files to deploy
 		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
 		recursive: true,
@@ -80,7 +80,7 @@ if (gulpversion == 3) {
 if (gulpversion == 4) {
 	gulp.task('watch', function() {
 		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', gulp.parallel('styles'));
-		gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('scripts'));
+		gulp.watch(['libs/**/*.js', 'app/**/common.js'], gulp.parallel('scripts'));
 		gulp.watch('app/*.html', gulp.parallel('code'))
 	});
 	gulp.task('default', gulp.parallel('watch', 'styles', 'scripts', 'browser-sync'));
